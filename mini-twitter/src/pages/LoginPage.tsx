@@ -4,6 +4,8 @@ import { useAppDispatch } from "../store/store";
 import { sendLoginInfo } from "../store/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 
+import "../App.scss";
+
 import svg from "../assets/loginpage/twitter-logo.svg";
 
 interface LoginFormInput {
@@ -40,40 +42,46 @@ function LoginPage() {
   };
 
   return (
-    <>
-      <img src={svg} />
-      <h1>Log in to Twitter</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <input
-            type="text"
-            {...register("username", {
-              required: "Name is required!",
-            })}
-            placeholder=" Name"
-          ></input>
+    <main>
+      <div>
+        <img src={svg} />
+        <h1>Log in to Twitter</h1>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <p>{errors.username?.message}</p>
+            <input
+              type="text"
+              {...register("username", {
+                required: "Name is required!",
+              })}
+              placeholder=" Phone number, email address"
+            ></input>
+            <div>
+              <p>{errors.username?.message}</p>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <input
-            type="password"
-            {...register("password", {
-              required: "Password is required!",
-            })}
-            placeholder=" Password"
-          ></input>
           <div>
-            <p>{errors.password?.message}</p>
+            <input
+              type="password"
+              {...register("password", {
+                required: "Password is required!",
+              })}
+              placeholder=" Password"
+            ></input>
+            <div>
+              <p>{errors.password?.message}</p>
+            </div>
           </div>
+          <button type="submit" className="login-button">
+            Log In
+          </button>
+        </form>
+        <div className="loginpage-sections">
+          <p>Forgot password</p>
+          <p>Sign up to Twitter</p>
         </div>
-        <button type="submit">Log In</button>
-      </form>
-      <button>Forgot password</button>
-      <button>Sign up to Twitter</button>
-    </>
+      </div>
+    </main>
   );
 }
 
