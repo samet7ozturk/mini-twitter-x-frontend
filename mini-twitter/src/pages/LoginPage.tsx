@@ -2,6 +2,9 @@ import { useForm } from "react-hook-form";
 import { AxiosInstance } from "../api/api";
 import { useAppDispatch } from "../store/store";
 import { sendLoginInfo } from "../store/slices/userSlice";
+import { useNavigate } from "react-router-dom";
+
+import svg from "../assets/loginpage/twitter-logo.svg";
 
 interface LoginFormInput {
   username: string;
@@ -9,6 +12,7 @@ interface LoginFormInput {
 }
 
 function LoginPage() {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const {
     register,
@@ -22,6 +26,7 @@ function LoginPage() {
       const response = await AxiosInstance.post("/profile/login", data);
       console.log("Login successful:", response.data);
       dispatch(sendLoginInfo(data));
+      navigate("/home");
     } catch (error) {
       // Handle login failure
       console.error("Login failed:", error);
@@ -36,7 +41,7 @@ function LoginPage() {
 
   return (
     <>
-      <img />
+      <img src={svg} />
       <h1>Log in to Twitter</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
