@@ -1,0 +1,31 @@
+.navbar {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: 55%;
+}
+
+article {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.home {
+  display: flex;
+}
+
+.logo {
+  width: 40px;
+  height: 33px;
+}
+
+button {
+  img {
+    width: 28px;
+    height: 28px;
+  }
+}

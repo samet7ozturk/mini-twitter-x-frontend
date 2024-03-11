@@ -1,0 +1,22 @@
+@import "../config/varibles";
+
+.login-button {
+  background-color: $color-blue;
+  border: none;
+  border-radius: 76px;
+  width: 450px;
+  height: 60px;
+  color: $color-white;
+  font-size: $font-size-m;
+  font-weight: bold;
+  font-family: $font-family-segoe;
+  margin-bottom: 20px;
+  &:hover {
+    cursor: pointer;
+    scale: 1.05;
+  }
+}
+
+navbar-button {
+  background-color: $color-white;
+}
