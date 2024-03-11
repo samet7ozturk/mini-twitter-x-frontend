@@ -4,8 +4,6 @@ import { useAppDispatch } from "../store/store";
 import { sendLoginInfo } from "../store/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 
-import "../App.scss";
-
 import svg from "../assets/loginpage/twitter-logo.svg";
 
 interface LoginFormInput {
@@ -28,7 +26,7 @@ function LoginPage() {
       const response = await AxiosInstance.post("/profile/login", data);
       console.log("Login successful:", response.data);
       dispatch(sendLoginInfo(data));
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       // Handle login failure
       console.error("Login failed:", error);
