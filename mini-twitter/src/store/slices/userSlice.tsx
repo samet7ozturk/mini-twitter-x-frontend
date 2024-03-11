@@ -13,16 +13,21 @@ const initialState: UserState = {
   user: null,
 };
 
+function saveToLocalStorage(user: User) {
+  localStorage.setItem("user", JSON.stringify(user));
+}
+
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
     sendLoginInfo: (state, action: PayloadAction<{ username: string }>) => {
       if (state.user === null) {
-        state.user = { username: action.payload.username, id: 0 }; // id için varsayılan bir değer atayın
+        state.user = { username: action.payload.username, id: 0 };
       } else {
         state.user = { ...state.user, username: action.payload.username };
       }
+      saveToLocalStorage(state.user);
     },
   },
 });
