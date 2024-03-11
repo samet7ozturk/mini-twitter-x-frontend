@@ -11,12 +11,22 @@
   font-weight: bold;
   font-family: $font-family-segoe;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:hover {
     cursor: pointer;
     scale: 1.05;
   }
 }
 
-navbar-button {
+.navbar-button {
   background-color: $color-white;
+  border: none;
+}
+
+.tweet-button {
+  width: 230px;
+  height: 55px;
+  margin: 0 0 0 -25px;
 }
